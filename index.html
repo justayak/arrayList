@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>yulist</title>
+    <script src="js/arraylist.js"></script>
+</head>
+<script>
+    var list = new ArrayList.Int(15);
+
+    list.add(5);
+    list.add(15);
+    list.add(25);
+    list.add(35);
+
+    list.remove(1);
+
+    list.add(5);
+    list.add(15);
+    list.add(25);
+    list.add(35);
+
+    list.remove(1);
+
+    //console.log(list.at(5, 10).at(5));
+    console.log(list.size)
+
+
+
+    list.forEach(function(item, index){
+       console.log(index + " -> " + item);
+    });
+
+</script>
+<body>
+
+</body>
+</html>
