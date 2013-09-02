@@ -30,6 +30,20 @@
        console.log(index + " -> " + item);
     });
 
+    var matrix = new ArrayList.IntMatrix(5,10);
+
+    matrix.set(12,2, 55);
+
+    var str = "";
+    for (var x = 0; x < matrix.width; x++){
+        for(var y = 0; y < matrix.height; y++){
+            str += matrix.get(x,y);
+        }
+        str += "\n";
+    }
+    console.log(str);
+
+
 </script>
 <body>
 

@@ -73,6 +73,46 @@
         }
     };
 
+    var IntMatrix = ArrayList.IntMatrix = function(w,h){
+        var buffer = new ArrayBuffer(w*h*IntByteSize);
+        this.data = new Int32Array(buffer);
+        this.width = w;
+        this.height = h;
+    };
+
+    IntMatrix.prototype.get = function(x,y){
+        return this.data[ (y * this.width) + x ];
+    };
+
+    IntMatrix.prototype.set = function(x,y, value){
+        this.data[ (y * this.width) + x ] = value;
+        return this;
+    };
+
+    IntMatrix.prototype.setField = function(x,y,w,h, value){
+        for (var Y= 0;Y<h; Y++){
+            for (var X = 0; X < w; X++){
+                this.data[((y + Y) * this.width) + (x + X)] = value;
+            }
+        }
+        return this;
+    };
+
+    IntMatrix.prototype.checkForValue = function(x,y,width,height, value){
+        var ret = {
+            hasValue : false,
+            positions : []
+        };
+        for (var h = 0; h < height; h++){
+            for (var w = 0;w<width;w++){
+                if(this.get(x+w,y+h)===value){
+                    ret.hasValue = true;
+                    ret.positions.push({x : (x+w), y : (y+h)});
+                }
+            }
+        }
+        return ret;
+    };
 
     // TODO impl
 
