@@ -34,6 +34,7 @@
         var buffer = new ArrayBuffer((this.capacity) * IntByteSize);
         var array = new Int32Array(buffer);
         array.set(this.array);
+        this.array = array;
     };
 
     IntList.prototype.at = function(index, value){
